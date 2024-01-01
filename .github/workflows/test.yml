@@ -21,5 +21,11 @@ jobs:
           # https://github.com/actions/setup-java/issues/356
           HOME: /root
       - name: Build with Maven
-        run: pwd
- 
+        run: ./mvnw -e -B verify
+
+      - name: Upload
+        uses: actions/upload-artifact@v3
+        with:
+          name: signal
+          path: /__w/Signal-Server/Signal-Server
+         
